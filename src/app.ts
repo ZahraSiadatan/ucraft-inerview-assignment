@@ -4,25 +4,9 @@ import express, { Application } from 'express'
 import logger from 'morgan'
 import router from './router/router'
 
-const app = express()
+const app = express();
 
-const whitelist: string[] = config.get('ORIGINS')
-const corsOptions = {
-  origin (origin, next) {
-    if (whitelist.indexOf(origin) !== -1 || !origin) {
-      next(null, true)
-    } else {
-      next(new Error('Not allowed by CORS'))
-    }
-  }
-}
-
-app.use(cors(corsOptions))
-app.use(
-  logger(
-    ':req[x-real-ip] - :req[x-forwarded-for] [:date[clf]] ":method :url HTTP/:http-version" :status :res[content-length] - :response-time ms'
-  )
-)
+app.use(cors())
 app.set('port', process.env.PORT || 8080)
 app.use(express.json({}))
 app.use(
