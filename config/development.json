@@ -1,0 +1,12 @@
+{
+    "APP_TITLE": "UCRAFT",
+    "APP_URI": "http://localhost:8888/",
+    "MONGO_URI": "mongodb://localhost:27017/ucraft",
+    "PORT": 8888,
+    "JWT_SECRET": "NkvVC23kJm4iIy9hvdAAe3PObSZMgZ5eB",
+    "RATE_LIMIT": {
+        "POINT": 15,
+        "DURATION": 1
+    },
+    "TOKEN_EXPIRATION_DURATION": 7776000000
+}
